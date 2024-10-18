@@ -57,24 +57,4 @@ public class Customer {
     public void addPurchase(Purchase purchase) {
         this.purchases.add(purchase);
     }
-
-    @Override
-    public String toString() {
-        return firstName + " " + lastName + " - Email: " + email.toString() + ", Address: " + address.toString();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-
-        Customer customer = (Customer) obj;
-
-        return email.equals(customer.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return email.hashCode();
-    }
 }
