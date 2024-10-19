@@ -10,10 +10,12 @@ import java.util.List;
 public class Control {
     private List<Customer> customers;
     private List<Product>products;
+    private List<Purchase>purchases;
 
     public Control() {
         customers = new ArrayList<>();
         products = new ArrayList<>();
+        purchases = new ArrayList<>();
     }
     public boolean addCustomer(Customer customer) {
         if (!customers.contains(customer)) {
@@ -24,6 +26,14 @@ public class Control {
             return false;
         }
     }
+    public Customer getCustomer(int index) {
+        if (index >= 0 && index < customers.size()) {
+            return customers.get(index);
+        } else {
+            System.out.println("index out of bounds.");
+            return null;
+        }
+    }
 
     public boolean addProduct(Product product) {
         if (!products.contains(product)) {
@@ -32,6 +42,15 @@ public class Control {
         } else {
             System.out.println("Product already exists.");
             return false;
+        }
+    }
+
+    public Product getProduct(int index) {
+        if (index >= 0 && index < products.size()) {
+            return products.get(index);
+        } else {
+            System.out.println("Error: index out of bounds.");
+            return null;
         }
     }
     public boolean makePurchase(Customer customer, Product product) {
@@ -53,5 +72,12 @@ public class Control {
         } else {
             System.out.println("Customer not found.");
         }
+    }
+    public void purchase(Purchase purchase) {
+        purchases.add(purchase);
+    }
+
+    public List<Purchase> getPurchasesList() {
+        return purchases;
     }
 }
