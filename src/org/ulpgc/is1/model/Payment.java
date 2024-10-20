@@ -1,23 +1,24 @@
 package org.ulpgc.is1.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Payment {
-    private Date date;
+    private LocalDate date;
     private int amount;
     private String card;
 
-    public Payment(Date date, String card, int amount) {
+    public Payment(LocalDate date, String card, int amount) {
         this.date = date;
         this.card = card;
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

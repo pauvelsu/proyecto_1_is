@@ -1,18 +1,19 @@
 package org.ulpgc.is1.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Purchase {
     private static int NEXT_ID = 0;
     private final int id;
-    private Date date;
+    private LocalDate date;
     private Address deliveryAddress;
     private Discount discount;
     private Product product;
     private Payment payment;
     private Customer customer;
 
-    public Purchase(int id, Date date, Address deliveryAddress, Discount discount, Product product, Payment payment, Customer customer) {
+    public Purchase(int id, LocalDate date, Address deliveryAddress, Discount discount, Product product, Payment payment, Customer customer) {
         this.id = id;
         this.date = date;
         this.deliveryAddress = deliveryAddress;
@@ -30,11 +31,11 @@ public class Purchase {
         NEXT_ID = nextId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -82,16 +83,15 @@ public class Purchase {
         this.product = product;
     }
 
-    public int getPrice(){
-        int new_price = 0;
-        if(discount != null &&
-                (date.equals(discount.getFrom())||date.after(discount.getFrom()))&&
-                date.equals(discount.getTo())||date.before(discount.getTo())){
-            new_price += product.getPrice() - (product.getPrice()*discount.getPercentage()/100);
-        } else{
-            new_price = product.getPrice();
+    public int getPrice() {
+        int new_price = product.getPrice();
+        if (discount != null &&
+                (date.isEqual(discount.getFrom()) || date.isAfter(discount.getFrom())) &&
+                (date.isEqual(discount.getTo()) || date.isBefore(discount.getTo()))) {
+            new_price -= (product.getPrice() * discount.getPercentage() / 100);
         }
 
         return new_price;
     }
+
 }
