@@ -17,7 +17,7 @@ public class PurchasingApp {
         Address address2 = new Address("Calle Patagonia", 23, "Las Palmas de Gran Canaria", "25007");
 
         Customer customer1 = new Customer("Alberto", "Tabera Silva", email1, address1);
-        Customer customer2 = new Customer("Jane", "Doe", email2, address2);
+        Customer customer2 = new Customer("Jose", "Ruiz", email2, address2);
 
         if (control.addCustomer(customer1)) {
             System.out.println("Cliente registrado: " + customer1.getFirstName());
@@ -72,7 +72,6 @@ public class PurchasingApp {
             Payment payment = purchase.getPayment();
             Address deliveryAddress = purchase.getDeliveryAddress();
 
-            // Datos de la compra
             System.out.println("    Compra (cod. " + i + ")");
             System.out.println("--------------------------------------------");
             System.out.println("*) Datos de la compra:");
@@ -83,7 +82,6 @@ public class PurchasingApp {
             System.out.println("   |- Cantidad: " + payment.getAmount() + " euros    (fecha del pago: " + payment.getDate() + ")");
             System.out.println("|- Total de la compra: " + payment.getAmount() + " euros.");
 
-            // Datos del producto
             System.out.println("\n*) Datos del producto:");
             System.out.println("|- Código: " + product.getId());
             System.out.println("|- Nombre: " + product.getName());

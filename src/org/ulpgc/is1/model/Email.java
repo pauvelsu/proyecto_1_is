@@ -1,29 +1,26 @@
 package org.ulpgc.is1.model;
 
 public class Email {
-    private String address;
+    private String account;
 
-    public Email(String address) {
-        if (isValidEmail(address)) {
-            this.address = address;
+    public Email(String account) {
+        if (isValidEmail(account)) {
+            this.account = account;
         } else {
-            throw new IllegalArgumentException("Invalid email format.");
+            throw new IllegalArgumentException("Invalid email address: " + account);
         }
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        if (isValidEmail(address)) {
-            this.address = address;
-        } else {
-            throw new IllegalArgumentException("Invalid email format.");
-        }
+    public String getAccount() {
+        return account;
     }
 
     private boolean isValidEmail(String email) {
-        return email.contains("@") && email.contains(".");
+        return email.contains("@") && email.contains(".") && !email.trim().isEmpty();
+    }
+    @Override
+    public String toString() {
+        return account;
     }
 }
+
