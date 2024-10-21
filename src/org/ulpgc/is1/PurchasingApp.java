@@ -51,7 +51,7 @@ public class PurchasingApp {
         Payment payment1 = new Payment(LocalDate.now(), "Visa", 1200);
 
         control.makePurchase(customer1, product1, address1, discount1, payment1);
-        control.makePurchase(customer1, product2, address1, discount1, payment1);
+        control.makePurchase(customer1, product2, address1, discount1 =null, payment1);
 
         showCustomerPurchases(control, customer1);
     }
