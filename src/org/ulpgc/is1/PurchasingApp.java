@@ -89,7 +89,7 @@ public class PurchasingApp {
             System.out.println("|- Nombre: " + product.getName());
             System.out.println("|- Descripción: " + product.getDescription());
             System.out.println("|- Categoría: " + product.getCategory());
-            System.out.println("|- Precio: " + product.getPrice() + " euros.");
+            System.out.println("|- Precio: " + purchase.getPrice() + " euros.");
 
 
 
