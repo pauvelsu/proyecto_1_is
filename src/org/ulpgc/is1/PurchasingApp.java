@@ -88,10 +88,13 @@ public class PurchasingApp {
             System.out.println("|- Descripción: " + product.getDescription());
             System.out.println("|- Categoría: " + product.getCategory());
             System.out.println("|- Precio: " + purchase.getPrice() + " euros.");
-
-
+            if (discount != null) {
+                System.out.println("|- Descuento de " + discount.getPercentage() + "% desde el " +
+                        discount.getFrom() + " hasta el " + discount.getTo());
+            }
 
             System.out.println("--------------------------------------------\n");
         }
+
     }
 }
